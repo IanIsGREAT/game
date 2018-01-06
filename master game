@@ -1,0 +1,1294 @@
+// Game for real.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <iostream> 
+#include <windows.h> // for sleep()
+#include <Mmsystem.h>
+#include <iostream>
+ 
+#pragma comment(lib,"Winmm.lib")
+ 
+int attacksound(void)
+ {
+	PlaySound(TEXT("attack.wav"), NULL, SND_FILENAME);
+	return(0);
+ }
+int defendsound(void)
+ {
+	PlaySound(TEXT("defend.wav"), NULL, SND_FILENAME);
+	return(0);
+ }
+int characterselection(void)
+{
+
+	int character;
+	printf("\nChoose your character:  \n");
+	printf("Enter your character\n 1: Michael\n 2: Ashraf\n 3: Nick\n 4: Bryan\n 5: Ian\n 6: Kevin\n 7: Zach\n 8: Sean Flint\n 9: Dylan\n 10: Sean Cox\n");
+	scanf("%i", &character);
+	
+	
+	do
+	{
+		if(character <= 0 || character >= 11)
+		{
+		printf("Incorrect Number, try again\n");
+		scanf("%i", &character);
+		}
+	}while(character <= 0 || character >= 11);
+
+	if(character == 1)
+	{
+		printf("You have selected Michael\n");
+	}
+	else if(character == 2)
+	{
+		printf("You have selected Ashraf\n");	
+	}
+	else if(character == 3)
+	{
+		printf("You have selected Nick\n");
+	}
+	else if(character == 4)
+	{
+		printf("You have selected Bryan\n");
+	}
+	else if(character == 5)
+	{
+		printf("You have selected Ian\n");
+	}
+	else if(character == 6)
+	{
+		printf("You have selected Kevin\n");
+	}
+	else if(character == 7)
+	{
+		printf("You have selected Zach\n");
+	}
+	else if(character == 8)
+	{
+		printf("You have selected Sean Flint\n");
+	}
+	else if(character == 9)
+	{
+		printf("You have selected Dylan\n");
+	}
+	else if(character == 10)
+	{
+		 printf("You have selected Sean Cox\n");
+	}
+
+	
+		return(character);
+}
+int characterselection2(void)
+{
+
+	int character;
+	printf("\nChoose your character:  \n");
+	printf("Enter your character player 2\n 1: Michael\n 2: Ashraf\n 3: Nick\n 4: Bryan\n 5: Ian\n 6: Kevin\n 7: Zach\n 8: Sean Flint\n 9: Dylan\n 10: Sean Cox\n");
+	scanf("%i", &character);
+	
+	
+	do
+	{
+		if(character <= 0 || character >= 11)
+		{
+		printf("Incorrect Number, try again\n");
+		scanf("%i", &character);
+		}
+	}while(character <= 0 || character >= 11);
+
+	if(character == 1)
+	{
+		printf("You have selected Michael\n");
+	}
+	else if(character == 2)
+	{
+		printf("You have selected Ashraf\n");	
+	}
+	else if(character == 3)
+	{
+		printf("You have selected Nick\n");
+	}
+	else if(character == 4)
+	{
+		printf("You have selected Bryan\n");
+	}
+	else if(character == 5)
+	{
+		printf("You have selected Ian\n");
+	}
+	else if(character == 6)
+	{
+		printf("You have selected Kevin\n");
+	}
+	else if(character == 7)
+	{
+		printf("You have selected Zach\n");
+	}
+	else if(character == 8)
+	{
+		printf("You have selected Sean Flint\n");
+	}
+	else if(character == 9)
+	{
+		printf("You have selected Dylan\n");
+	}
+	else if(character == 10)
+	{
+		 printf("You have selected Sean Cox\n");
+	}
+
+	
+		return(character);
+}
+int rng1000(void)
+{
+ int r;
+ srand(time(NULL));//required for "randomness"
+ r=rand()%1001;//generate a number between 0 and 1000
+ //printf("%i\n",r);
+
+	return(r);
+}
+int rng100(void)
+{
+srand(time(NULL));//required for "randomness"
+
+ int r;
+ r=rand()%101;//generate a number between 0 and 100
+ //printf("%i",r);
+ 
+	return(r);
+}
+int rng25(void)
+{
+srand(time(NULL));//required for "randomness"
+
+ int r;
+ r=rand()%26;//generate a number between 0 and 100
+ printf("%i",r);
+
+	return(r);
+}
+int lootcratebad(void)
+{
+	int chance, character;
+
+	/*for(num=1; num<=1000; ++num)
+	{
+	printf("LOOTCRATE\n");
+	printf("\n");
+	}*/
+
+	//printf("How many crates would you like to purchase? \n");
+	//scanf("%i", &crates);
+
+	chance = rng1000();
+	
+	//printf("%i", chance);
+	if(chance >= 0 && chance <= 749)
+	{
+		printf("\nYou got Sean Cox\n");
+		character = 1;
+	}
+	else if(chance >= 750 && chance <= 816)
+	{
+		printf("\nYou got Dylan\n");
+		character = 2;
+	}
+	else if(chance >= 817 && chance <= 883)
+	{
+		printf("\nYou got Sean Flint\n");
+		character = 3;
+	}
+	else if(chance >= 884 && chance <= 949)
+	{
+		printf("\nYou got Zach\n");
+		character = 4;
+	}
+	else if(chance >= 950 && chance <= 963)
+	{
+		printf("\nYou got Kevin\n");
+		character = 5;
+	}
+	else if(chance >= 964 && chance <= 976)
+	{
+		printf("\nYou got Ian\n");
+		character = 6;
+	}
+	else if(chance >= 977 && chance <= 989)
+	{
+		printf("\nYou got Bryan\n");
+		character = 7;
+	}
+	else if(chance >= 990 && chance <= 993)
+	{
+		printf("\nYou got Nick\n");
+		character = 8;
+	}
+	else if(chance >= 994 && chance <= 997)
+	{
+		printf("\nYou got Ashraf\n");
+		character = 9;
+	}
+	else
+	{
+		printf("\nYou got Michael\n");
+		character = 10;
+	}
+
+	printf("%i\n", chance);
+
+	return(character);
+
+}
+int lootcratemedium(void)
+{
+	int chance;
+
+	/*for(num=1; num<=1000; ++num)
+	{
+	printf("LOOTCRATE\n");
+	printf("\n");
+	}*/
+
+	//printf("How many crates would you like to purchase? \n");
+	//scanf("%i", &crates);
+
+	chance = rng100();
+	
+	printf("%i", chance);
+	if(chance >= 0 && chance <= 24)
+	{
+		printf("\nYou got Dylan\n");
+	}
+	else if(chance >= 25 && chance <= 49)
+	{
+		printf("\nYou got Sean Flint\n");
+	}
+	else if(chance >= 50 && chance <= 74)
+	{
+		printf("\nYou got Zach\n");
+	}
+	else if(chance >= 75 && chance <= 81)
+	{
+		printf("\nYou got Kevin\n");
+	}
+	else if(chance >= 82 && chance <= 88)
+	{
+		printf("\nYou got Ian\n");
+	}
+	else if(chance >= 89 && chance <= 94)
+	{
+		printf("\nYou got Bryan\n");
+	}
+	else if(chance >= 95 && chance <= 96)
+	{
+		printf("\nYou got Nick\n");
+	}
+	else if(chance >= 97 && chance <= 98)
+	{
+		printf("\nYou got Ashraf\n");
+	}
+	else
+	{
+		printf("\nYou got Michael\n");
+	}
+
+
+
+	return(0);
+
+}
+int lootcrategood(void)
+{
+	int chance;
+
+	/*for(num=1; num<=1000; ++num)
+	{
+	printf("LOOTCRATE\n");
+	printf("\n");
+	}*/
+
+	//printf("How many crates would you like to purchase? \n");
+	//scanf("%i", &crates);
+
+	chance = rng100();
+	
+	printf("%i", chance);
+	if(chance >= 0 && chance <= 24)
+	{
+		printf("\nYou got Kevin\n");
+	}
+	else if(chance >= 25 && chance <= 49)
+	{
+		printf("\nYou got Ian\n");
+	}
+	else if(chance >= 50 && chance <= 74)
+	{
+		printf("\nYou got Bryan\n");
+	}
+	else if(chance >= 75 && chance <= 83)
+	{
+		printf("\nYou got Nick\n");
+	}
+	else if(chance >= 84 && chance <= 92)
+	{
+		printf("\nYou got Ashraf\n");
+	}
+	else
+	{
+		printf("\nYou got Michael\n");
+	}
+
+	return(0);
+
+}
+int finished(void)
+{
+    for (;;) {
+
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFinished" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bfInished" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFiNished" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFinIshed" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFiniShed" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFinisHed" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFinishEd" << std::flush;
+        Sleep(100);
+        std::cout << "\b\b\b\b\b\b\b\b\b\b\b\b\bFinisheD" << std::flush;
+        Sleep(100);
+    }
+
+
+    return 0;
+}    
+int UserInput(int min, int max)
+{
+ int c;
+
+    do
+ {
+  scanf("%i", &c);
+
+  if(c < min || c > max)
+   printf("Invalid entry, please try again: ");
+ }while(c < min || c > max);
+
+ return(c);
+
+ }
+//int randomencounters(void)
+//{
+//	int r;
+//	srand(time(NULL));//required for "randomness"
+//	r=rand()%1001;//generate a number between 0 and 1000
+//	//printf("%i\n",r);
+//
+//	if(r <= 500 || r >= 550)
+//	{	
+//		
+//	printf("A wild Orc Appeared!!!\n");
+//	do{
+//	int choice, hitpoints;
+//	printf("What do you want to attack with?\n 1 = Strength\n 2 = Intellect\n 3 = Social Power\n 4 = Speed\n");
+//	scanf("%i", &choice);
+//	//printf("Do you want to use an item? Y=1 N=2\n");
+//	attack = rng25();
+//	int damage = 0;
+//	do{
+//		
+//		if(choice < 1 || choice > 4)
+//		{
+//			printf("Invalid Entry Try again!\n");
+//			scanf("%i", &choice);
+//		}
+//	}while(choice < 1 || choice > 4);
+//
+//
+//	if(choice == 1)
+//	{
+//		printf("Chosen strength\n");
+//		//characterstats();
+//		damage = strength / 5;
+//	}
+//	else if(choice == 2)
+//	{
+//		printf("Chosen intellect\n");
+//		//characterstats();
+//		damage = intellect / 5;
+//	}
+//	else if(choice == 3)
+//	{
+//		printf("Chosen social power\n");
+//		//characterstats();
+//		damage = social / 5;
+//	}
+//	else if(choice == 4)
+//	{
+//		printf("Chosen speed\n");
+//		//characterstats();
+//		damage = speed / 5;
+//	}
+//	int win, healthpoints;
+//	printf("Damage Given = %i\n", damage);
+//	hitpoints = hitpoints - damage;
+//	printf("Hitpoints Left = %i\n", hitpoints);
+//
+//	healthpoints = healthpoints - attack;
+//	printf("Healthpoints = %i\n", healthpoints);
+//
+//	}while(hitpoints >= 0 && healthpoints >= 0);
+//
+//
+//	if(hitpoints >= 0)
+//	{
+//		win = 1;
+//	}
+//	if(healthpoints >= 0)
+//	{
+//		win = 0;
+//	}
+//	if(win == 1)
+//	{
+//		printf("You have slain the Orc!\n Here is a Medium grade Loot Chest for your success!\n");
+//		lootcratebad();
+//	}
+//	if(win == 0)
+//	{
+//		printf("You have died!\n");
+//	}
+//	}
+//
+//
+//	return(r);
+//}
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	printf("Welcome to game\n\n\n");
+	
+	
+	/*int character = characterselection();*/
+	//randomencounters();
+	//nikitistik();
+	//lootcratebad();
+	//characterstrength();
+	//characterintellect();
+	//lootcratemedium();
+	//lootcrategood();
+	//finished();
+	int strength, intellect, social, speed, healthpoints;
+	//
+	//if(character == 10)
+	//{//sean cox
+	//	strength = 50;
+	//	intellect = 64;
+	//	social = 76;
+	//	speed = 50;
+	//	healthpoints = 88; 
+	//}
+	//else if(character == 9)
+	//{//dylan
+	//	strength = 70;
+	//	intellect = 122;
+	//	social = 50;
+	//	speed = 74;
+	//	healthpoints = 70;
+	//}
+	//else if(character == 8)
+	//{//sean flint
+	//	strength = 80;
+	//	intellect = 72;
+	//	social = 92;
+	//	speed = 116;
+	//	healthpoints = 50;
+	//}
+	//else if(character == 7)
+	//{//zach
+	//	strength = 90;
+	//	intellect = 94;
+	//	social = 68;
+	//	speed = 84;
+	//	healthpoints = 86;
+	//}
+	//else if(character == 6)
+	//{//kevin
+	//	strength = 148;
+	//	intellect = 50;
+	//	social = 124;
+	//	speed = 60;
+	//	healthpoints = 148;
+	//}
+	//else if(character == 5)
+	//{//ian
+	//	strength = 104;
+	//	intellect = 148;
+	//	social = 106;
+	//	speed = 114;
+	//	healthpoints = 94;
+	//}
+	//else if(character == 4)
+	//{//bryan
+	//	strength = 118;
+	//	intellect = 102;
+	//	social = 136;
+	//	speed = 112;
+	//	healthpoints = 124;
+	//}
+	//else if(character == 3)
+	//{//nick
+	//	strength = 120;
+	//	intellect = 110;
+	//	social = 128;
+	//	speed = 138;
+	//	healthpoints = 120;
+	//}
+	//else if(character == 2)
+	//{//ashraf
+	//	strength = 134;
+	//	intellect = 108;
+	//	social = 120;
+	//	speed = 148;
+	//	healthpoints = 106;
+	//}
+	//else
+	//{//michael
+	//	strength = 116;
+	//	intellect = 130;
+	//	social = 148;
+	//	speed = 144;
+	//	healthpoints = 96;
+	//}
+
+	//int overall;
+	//overall = strength + intellect + social + speed + healthpoints;
+	//int overallscore;
+	//overallscore = overall / 5
+	//printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	//printf("Overall Score = %i\n", overallscore);
+
+	//int  attack, orchitpoints;
+	//orchitpoints = 150;
+	//hitpoints = 150;
+	//
+	//
+	//printf("A wild Orc Appeared!!!\n");
+	//do{
+	//int choice;
+	//printf("What do you want to attack with?\n 1 = Strength\n 2 = Intellect\n 3 = Social Power\n 4 = Speed\n");
+	//scanf("%i", &choice);
+	//
+
+	////items add points to your scores
+
+	//
+
+	////printf("Do you want to use an item? Y=1 N=2\n");
+	//attack = rng25();
+	//int damage = 0;
+	//do{
+	//	
+	//	if(choice < 1 || choice > 4)
+	//	{
+	//		printf("Invalid Entry Try again!\n");
+	//		scanf("%i", &choice);
+	//	}
+	//}while(choice < 1 || choice > 4);
+
+
+	//if(choice == 1)
+	//{
+	//	printf("\nChosen strength\n");
+	//	//characterstats();
+	//	damage = strength / 5;
+	//}
+	//else if(choice == 2)
+	//{
+	//	printf("\nChosen intellect\n");
+	//	//characterstats();
+	//	damage = intellect / 5;
+	//}
+	//else if(choice == 3)
+	//{
+	//	printf("\nChosen social power\n");
+	//	//characterstats();
+	//	damage = social / 5;
+	//}
+	//else if(choice == 4)
+	//{
+	//	printf("\nChosen speed\n");
+	//	//characterstats();
+	//	damage = speed / 5;
+	//}
+	//
+	//printf("Damage Given = %i\n", damage);
+	//hitpoints = hitpoints - damage;
+	//printf("Hitpoints Left = %i\n", hitpoints);
+
+	//healthpoints = healthpoints - attack;	
+	//printf("Healthpoints = %i\n", healthpoints);
+
+
+	//}while(hitpoints >= 0 && healthpoints >= 0);
+
+
+	//if(hitpoints <= 0)
+	//{
+	//	printf("You have slain the Orc! Take this lootcrate\n");
+	//	lootcratebad();
+	//}
+	//if(healthpoints <= 0)
+	//{
+	//	printf("You have died!\n");
+	//}
+	//
+
+
+	/*int size;
+	printf("What monitor size are you running?\n 1 for HD, 2 for QHD")
+	size = UserInput(1,2);
+	if(size == 1)
+	{
+
+	}
+	if(size == 2)
+	{
+
+	}*/
+	
+	int choice, choice2, choice3, choice4, choice5, choice6, damage, damage2, strength2, intellect2, healthpoints2, defense, defense2,  stat, stat2, predamage, predamage2, social2, speed2;
+    float per, per2;
+	
+	choice = characterselection();
+
+	if(choice == 10)
+	{//sean cox
+		strength = 50;
+		intellect = 64;
+		social = 76;
+		speed = 50;
+		healthpoints = 88; 
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 9)
+	{//dylan
+		strength = 70;
+		intellect = 122;
+		social = 50;
+		speed = 74;
+		healthpoints = 70;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 8)
+	{//sean flint
+		strength = 80;
+		intellect = 72;
+		social = 92;
+		speed = 116;
+		healthpoints = 50;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 7)
+	{//zach
+		strength = 90;
+		intellect = 94;
+		social = 68;
+		speed = 84;
+		healthpoints = 86;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 6)
+	{//kevin
+		strength = 148;
+		intellect = 50;
+		social = 124;
+		speed = 60;
+		healthpoints = 148;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 5)
+	{//ian
+		strength = 104;
+		intellect = 148;
+		social = 106;
+		speed = 114;
+		healthpoints = 94;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 4)
+	{//bryan
+		strength = 118;
+		intellect = 102;
+		social = 136;
+		speed = 112;
+		healthpoints = 124;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 3)
+	{//nick
+		strength = 120;
+		intellect = 110;
+		social = 128;
+		speed = 138;
+		healthpoints = 120;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else if(choice == 2)
+	{//ashraf
+		strength = 134;
+		intellect = 108;
+		social = 120;
+		speed = 148;
+		healthpoints = 106;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+	else
+	{//michael
+		strength = 116;
+		intellect = 130;
+		social = 148;
+		speed = 144;
+		healthpoints = 96;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength, intellect, social, speed, healthpoints);
+	}
+
+	choice2 = characterselection2();
+
+	if(choice2 == 10)
+	{//sean cox
+		strength2 = 50;
+		intellect2 = 64;
+		social2 = 76;
+		speed2 = 50;
+		healthpoints2 = 88; 
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 9)
+	{//dylan
+		strength2 = 70;
+		intellect2 = 122;
+		social2 = 50;
+		speed2 = 74;
+		healthpoints2 = 70;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 8)
+	{//sean flint
+		strength2 = 80;
+		intellect2 = 72;
+		social2 = 92;
+		speed2 = 116;
+		healthpoints2 = 50;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 7)
+	{//zach
+		strength2 = 90;
+		intellect2 = 94;
+		social2 = 68;
+		speed2 = 84;
+		healthpoints2 = 86;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 6)
+	{//kevin
+		strength2 = 148;
+		intellect2 = 50;
+		social2 = 124;
+		speed2 = 60;
+		healthpoints2 = 148;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 5)
+	{//ian
+		strength2 = 104;
+		intellect2 = 148;
+		social2 = 106;
+		speed2 = 114;
+		healthpoints2 = 94;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 4)
+	{//bryan
+		strength2 = 118;
+		intellect2 = 102;
+		social2 = 136;
+		speed2 = 112;
+		healthpoints2 = 124;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 3)
+	{//nick
+		strength2 = 120;
+		intellect2 = 110;
+		social2 = 128;
+		speed2 = 138;
+		healthpoints2 = 120;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else if(choice2 == 2)
+	{//ashraf
+		strength2 = 134;
+		intellect2 = 108;
+		social2 = 120;
+		speed2 = 148;
+		healthpoints2 = 106;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+	else
+	{//michael
+		strength2 = 116;
+		intellect2 = 130;
+		social2 = 148;
+		speed2 = 144;
+		healthpoints2 = 96;
+		printf("Strength = %i, Intellect = %i, Social = %i, Speed = %i, Healtpoints = %i\n", strength2, intellect2, social2, speed2, healthpoints2);
+	}
+
+	
+
+	//printf("|                                                    |                                                        |\n");
+ //   printf("| SSSSS   TTTTT RRRR  EEEEE N   N  GGGG   TTTTT H   H| IIIII N   N  TTTTT EEEEE L     L     EEEEE  CCCC  TTTTT|\n");
+	//printf("|S          T   R   R E     NN  N G         T   H   H|   I   NN  N    T   E     L     L     E     C        T  |\n");
+	//printf("| SSSSS     T   RRRR  EEEEE N N N G  GGG    T   HHHHH|   I   N N N    T   EEEEE L     L     EEEEE C        T  |\n");
+	//printf("|      S    T   R R   E     N  NN G    G    T   H   H|   I   N  NN    T   E     L     L     E     C        T  |\n");
+	//printf("| SSSSS     T   R  RR EEEEE N   N  GGGG     T   H   H| IIIII N   N    T   EEEEE LLLLL LLLLL EEEEE  CCCC    T  |\n");
+	//printf("|                                                    |                                                        |\n");
+	
+	do
+	{
+		printf("\nPLAYER ONE'S TURN\n");
+	
+	printf("\nChoose your attack: 1 = Strength 2 = Intellect 3 = Social 4 = Speed\n ");
+
+	choice3 = UserInput(1,4);
+	if(choice3 == 1 && healthpoints > 0)
+	{
+		predamage = strength / 5;
+		attacksound();
+		
+	}
+	else if(choice3 == 2 && healthpoints > 0)
+	{
+		predamage = intellect / 5;
+		attacksound();
+		
+	}
+	else if(choice3 == 3 && healthpoints > 0)
+	{
+		predamage = social / 5;
+		attacksound();
+		
+	}
+	else if(choice3 == 4 && healthpoints > 0)
+	{
+		predamage = speed / 5;
+		attacksound();
+		
+	}
+	else
+	{
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are dead, no damage done\n");
+		break;
+	}
+	printf("Player One has attacked, how do you defend Player 2? : ");
+	choice4 = UserInput(1,4);
+	if(choice4 == 1 && choice3 == 1 && healthpoints > 0)
+	{
+		stat = strength - strength2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice4 == 2 && choice3 == 1 && healthpoints > 0)
+	{
+		stat = strength - intellect2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective\n");
+		
+	}
+	else if(choice4 == 3 && choice3 == 1 && healthpoints > 0)
+	{
+		stat = strength - social2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		
+		
+	}
+	else if(choice4 == 4 && choice3 == 1 && healthpoints > 0)
+	{
+		stat = strength - speed2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+		
+	}
+	if(choice4 == 1 && choice3 == 2 && healthpoints > 0)
+	{
+		stat = intellect - strength2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	if(choice4 == 2 && choice3 == 2 && healthpoints > 0)
+	{
+		stat = intellect - intellect2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	if(choice4 == 3 && choice3 == 2 && healthpoints > 0)
+	{
+		stat = intellect - social2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	if(choice4 == 4 && choice3 == 2 && healthpoints > 0)
+	{
+		stat = intellect - speed2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	if(choice4 == 1 && choice3 == 3 && healthpoints > 0)
+	{
+		stat = social - strength2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	if(choice4 == 2 && choice3 == 3 && healthpoints > 0)
+	{
+		stat = social - intellect2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	if(choice4 == 3 && choice3 == 3 && healthpoints > 0)
+	{
+		stat = social - social2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	if(choice4 == 4 && choice3 == 3 && healthpoints > 0)
+	{
+		stat = social - speed2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	if(choice4 == 1 && choice3 == 4 && healthpoints > 0)
+	{
+		stat = speed - strength2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	if(choice4 == 2 && choice3 == 4 && healthpoints > 0)
+	{
+		stat = speed - intellect2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	if(choice4 == 3 && choice3 == 4 && healthpoints > 0)
+	{
+		stat = speed - social2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	if(choice4 == 4 && choice3 == 4 && healthpoints > 0)
+	{
+		stat = speed - speed2;
+		per = stat * 0.01;
+		defense = predamage * per;
+		damage = predamage + defense;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	
+	printf("%i Damage Dealt", damage);
+
+	healthpoints2 = healthpoints2 - damage;
+	if(healthpoints2 < 0)
+	{
+		healthpoints2 = 0;
+	}
+	printf("\nPlayer 2 health %i\n\n\n\n\n\n\n\n", healthpoints2);
+
+	printf("\nPLAYER TWO'S TURN\n");
+	
+	printf("\nChoose your attack: 1 = Strength 2 = Intellect 3 = Social 4 = Speed\n ");
+
+	choice5 = UserInput(1,4);
+
+
+	
+
+	if(choice5 == 1 && healthpoints2 > 0)
+	{
+	predamage2 = strength2 / 5;
+	attacksound();
+  
+	}
+	else if(choice5 == 2 && healthpoints2 > 0)
+	{
+	predamage2 = intellect2 / 5;
+	attacksound();
+  
+	}
+	else if(choice5 == 3 && healthpoints2 > 0)
+	{
+	predamage2 = social2 / 5;
+	attacksound();
+  
+	}
+	else if(choice5 == 4 && healthpoints2 > 0)
+	{
+	attacksound();
+	predamage2 = speed2 / 5;
+  
+	}
+	else
+	{
+	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are dead, no damage done\n");
+	break;
+	}
+	printf("Player Two has attacked, how do you defend Player 1? : ");
+	choice6 = UserInput(1,4);
+	if(choice6 == 1 && choice5 == 1 && healthpoints > 0)
+	{
+		stat = strength2 - strength;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 2 && choice5 == 1 && healthpoints > 0)
+	{
+		stat = strength2 - intellect;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective\n");
+		
+	}
+	else if(choice6 == 3 && choice5 == 1 && healthpoints > 0)
+	{
+		stat = strength2 - social;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+		
+		
+	}
+	else if(choice6 == 4 && choice5 == 1 && healthpoints > 0)
+	{
+		stat = strength2 - speed;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+		
+	}
+	else if(choice6 == 1 && choice5 == 2 && healthpoints > 0)
+	{
+		stat = intellect2 - strength;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	else if(choice6 == 2 && choice5 == 2 && healthpoints > 0)
+	{
+		stat = intellect2 - intellect;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 3 && choice5 == 2 && healthpoints > 0)
+	{
+		stat = intellect2 - social;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	else if(choice6 == 4 && choice5 == 2 && healthpoints > 0)
+	{
+		stat = intellect2 - speed;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 1 && choice5 == 3 && healthpoints > 0)
+	{
+		stat = social2 - strength;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2+ defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 2 && choice5 == 3 && healthpoints > 0)
+	{
+		stat = social2 - intellect;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	else if(choice6 == 3 && choice5 == 3 && healthpoints > 0)
+	{
+		stat = social2 - social;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 4 && choice5 == 3 && healthpoints > 0)
+	{
+		stat = social2 - speed;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	else if(choice6 == 1 && choice5 == 4 && healthpoints > 0)
+	{
+		stat = speed2 - strength;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 - 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's not very effective!\n");
+	}
+	else if(choice6 == 2 && choice5 == 4 && healthpoints > 0)
+	{
+		stat = speed2 - intellect;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	else if(choice6 == 3 && choice5 == 4 && healthpoints > 0)
+	{
+		stat = speed2 - social;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2 + 10;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIt's super effective!\n");
+	}
+	else if(choice6 == 4 && choice5 == 4 && healthpoints > 0)
+	{
+		stat = speed2 - speed;
+		per = stat * 0.01;
+		defense2 = predamage2 * per;
+		damage2 = predamage2 + defense2;
+		defendsound();
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+	
+
+	else
+	{
+		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are dead, no damage done\n");
+		break;
+	}
+
+
+
+	printf("%i Damage Dealt", damage2);
+	
+
+	healthpoints = healthpoints - damage2;
+	if(healthpoints < 0)
+	{
+		healthpoints = 0;
+	}
+	printf("\nPlayer 1 health %i\n\n\n\n\n\n\n\n", healthpoints);
+	}while(healthpoints > 0 && healthpoints2 > 0);
+
+	if(healthpoints2 <= 0)
+	{
+		printf("\nPLAYER ONE WINS!!!!!\n");
+		printf("\nHere is a lootcrate for your victory!\n");
+		lootcratemedium();
+	}
+	else if (healthpoints <= 0)
+	{
+		printf("\nPLAYER TWO WINS!!!!!\n");
+		printf("\nHere is a lootcrate for your victory!\n");
+		lootcratemedium();
+	}
+	
+	finished();
+	
+
+
+
+	return 0;
+} 
